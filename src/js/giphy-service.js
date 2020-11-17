@@ -1,6 +1,8 @@
 export default class GiphyService {
   static getGif(gif) {
     return new Promise(function(resolve, reject) {
+      let request = new XMLHttpRequest();
+      const url = `https://api.giphy.com/v1/gifs/search?api_key=${process.env.API_KEY}&q=&limit=25&offset=0&rating=g&lang=en`;
       request.onload = function()  {
         if (this.status === 200) {
           resolve(request.response);
